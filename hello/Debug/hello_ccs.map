@@ -1,0 +1,477 @@
+******************************************************************************
+                  TI ARM Linker Unix v20.2.7                   
+******************************************************************************
+>> Linked Sat Feb 11 16:24:00 2023
+
+OUTPUT FILE NAME:   <hello.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00003645
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000444c  0003bbb4  R  X
+  SRAM                  20000000   00008000  0000021d  00007de3  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004450   00004450    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000036b0   000036b0    r-x .text
+  0000391c    0000391c    00000b00   00000b00    r-- .const
+  00004420    00004420    00000030   00000030    r-- .cinit
+20000000    20000000    0000021d   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000018   00000000    rw- .bss
+  20000218    20000218    00000005   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000036b0     
+                  0000026c    000002d4     ec_c25519_m31.obj (.text:mul9)
+                  00000540    000002d4     ec_p256_m31.obj (.text:mul9)
+                  00000814    0000025c     ec_p256_m31.obj (.text:mul_f256)
+                  00000a70    0000025c     ec_p256_m31.obj (.text:square_f256)
+                  00000ccc    00000246     i31_montmul.obj (.text:br_i31_montymul)
+                  00000f12    00000238     ec_c25519_m31.obj (.text:api_mul)
+                  0000114a    00000210     ec_c25519_m31.obj (.text:square9)
+                  0000135a    00000210     ec_p256_m31.obj (.text:square9)
+                  0000156a    00000002     startup_ccs.obj (.text:FaultISR)
+                  0000156c    000001ee     uartstdio.obj (.text:UARTvprintf)
+                  0000175a    000001c0     i31_muladd.obj (.text:br_i31_muladd_small)
+                  0000191a    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  0000191c    00000184     ec_prime_i31.obj (.text:run_code)
+                  00001aa0    00000128     ec_p256_m31.obj (.text:p256_add)
+                  00001bc8    00000114     ec_prime_i31.obj (.text:point_mul)
+                  00001cdc    00000110     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00001dec    0000010c     i31_decmod.obj (.text:br_i31_decode_mod)
+                  00001ef8    000000f8     ec_p256_m31.obj (.text:p256_add_mixed)
+                  00001ff0    000000f8     ec_p256_m31.obj (.text:p256_decode)
+                  000020e8    000000f4     ec_p256_m31.obj (.text:sub_f256)
+                  000021dc    000000ea     ec_p256_m31.obj (.text:p256_mul)
+                  000022c6    000000dc     ec_p256_m31.obj (.text:p256_double)
+                  000023a2    000000d8     ec_p256_m31.obj (.text:p256_to_affine)
+                  0000247a    00000002     startup_ccs.obj (.text:NmiSR)
+                  0000247c    000000c8     ec_prime_i31.obj (.text:api_muladd)
+                  00002544    000000c6     ec_keygen.obj (.text:br_ec_keygen)
+                  0000260a    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  0000260c    000000c4     hello.obj (.text:main)
+                  000026d0    000000ba     i31_modpow.obj (.text:br_i31_modpow)
+                  0000278a    000000b2     ec_p256_m31.obj (.text:api_muladd)
+                  0000283c    000000a8     ec_prime_i31.obj (.text:point_decode)
+                  000028e4    000000a0     ec_p256_m31.obj (.text:p256_mulgen)
+                  00002984    0000009e     i32_div32.obj (.text:br_divrem)
+                  00002a22    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00002abe    00000090     i31_encode.obj (.text:br_i31_encode)
+                  00002b4e    00000002     --HOLE-- [fill = 0]
+                  00002b50    0000008c     ec_p256_m31.obj (.text:lookup_Gwin)
+                  00002bdc    00000088     ec_all_m31.obj (.text:api_muladd)
+                  00002c64    00000080     ec_p256_m31.obj (.text:add_f256)
+                  00002ce4    0000007e     ec_c25519_m31.obj (.text:f255_mul)
+                  00002d62    0000007e     ec_c25519_m31.obj (.text:f255_square)
+                  00002de0    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00002e5a    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002ec2    00000002     --HOLE-- [fill = 0]
+                  00002ec4    00000068     ec_c25519_m31.obj (.text:f255_mul_a24)
+                  00002f2c    00000064     hello.obj (.text:ConfigureUART)
+                  00002f90    00000060     uartstdio.obj (.text:UARTStdioConfig)
+                  00002ff0    00000058     ec_prime_i31.obj (.text:api_mul)
+                  00003048    00000056     ec_c25519_m31.obj (.text:f255_sub)
+                  0000309e    00000002     --HOLE-- [fill = 0]
+                  000030a0    00000054     ec_all_m31.obj (.text:api_mul)
+                  000030f4    00000054     ec_prime_i31.obj (.text:point_encode)
+                  00003148    0000004c     ec_c25519_m31.obj (.text:reduce_final_f255)
+                  00003194    0000004c     ec_p256_m31.obj (.text:reduce_final_f256)
+                  000031e0    0000004a     ec_c25519_m31.obj (.text:f255_add)
+                  0000322a    00000002     --HOLE-- [fill = 0]
+                  0000322c    00000048     uartstdio.obj (.text:UARTwrite)
+                  00003274    00000048     ec_all_m31.obj (.text:api_order)
+                  000032bc    00000048     ec_all_m31.obj (.text:api_xoff)
+                  00003304    00000048     i31_sub.obj (.text:br_i31_sub)
+                  0000334c    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00003390    00000044     ec_all_m31.obj (.text:api_generator)
+                  000033d4    00000044     ec_all_m31.obj (.text:api_mulgen)
+                  00003418    00000044     ec_pubkey.obj (.text:br_ec_compute_pub)
+                  0000345c    00000044     i31_add.obj (.text:br_i31_add)
+                  000034a0    00000040     hello.obj (.text:generate_ecc_key_pair)
+                  000034e0    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.asm.obj (.text)
+                  00003520    0000003e     ec_p256_m31.obj (.text:api_mul)
+                  0000355e    0000003e     ec_p256_m31.obj (.text:be8_to_le30)
+                  0000359c    0000003a     ec_c25519_m31.obj (.text:le8_to_le30)
+                  000035d6    00000038     ec_p256_m31.obj (.text:le30_to_be8)
+                  0000360e    00000036     ec_c25519_m31.obj (.text:le30_to_le8)
+                  00003644    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00003678    0000002e     ec_prime_i31.obj (.text:api_mulgen)
+                  000036a6    0000002c     ec_c25519_m31.obj (.text:api_mulgen)
+                  000036d2    0000002c     i31_iszero.obj (.text:br_i31_iszero)
+                  000036fe    00000002     --HOLE-- [fill = 0]
+                  00003700    0000002c     ec_prime_i31.obj (.text:id_to_curve_def)
+                  0000372c    00000028     ec_c25519_m31.obj (.text:cswap)
+                  00003754    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : memmov.c.obj (.text:memmove)
+                  0000377c    00000024     ec_p256_m31.obj (.text:p256_encode)
+                  000037a0    00000022     ec_p256_m31.obj (.text:api_mulgen)
+                  000037c2    00000022     ccopy.obj (.text:br_ccopy)
+                  000037e4    00000020     ec_prime_i31.obj (.text:set_one)
+                  00003804    0000001e     i31_tmont.obj (.text:br_i31_to_monty)
+                  00003822    0000001e     ec_prime_i31.obj (.text:point_zero)
+                  00003840    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000385c    0000001a     uartstdio.obj (.text:UARTprintf)
+                  00003876    00000010     ec_prime_i31.obj (.text:api_xoff)
+                  00003886    0000000e     ec_prime_i31.obj (.text:api_generator)
+                  00003894    0000000e     ec_prime_i31.obj (.text:api_order)
+                  000038a2    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000038b0    0000000c     ec_c25519_m31.obj (.text:api_generator)
+                  000038bc    0000000c     ec_p256_m31.obj (.text:api_generator)
+                  000038c8    0000000c     ec_c25519_m31.obj (.text:api_order)
+                  000038d4    0000000c     ec_p256_m31.obj (.text:api_order)
+                  000038e0    00000008     ec_c25519_m31.obj (.text:api_xoff)
+                  000038e8    00000008     ec_p256_m31.obj (.text:api_xoff)
+                  000038f0    00000008     ec_default.obj (.text:br_ec_get_default)
+                  000038f8    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  000038fe    00000006     startup_ccs.obj (.text:ResetISR)
+                  00003904    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  0000390a    00000006                   : uart.obj (.text:UARTClockSourceSet)
+                  00003910    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00003914    00000004                                   : exit.c.obj (.text:abort:abort)
+                  00003918    00000004     ec_c25519_m31.obj (.text:api_muladd)
+
+.const     0    0000391c    00000b00     
+                  0000391c    00000438     ec_p256_m31.obj (.const:Gwin)
+                  00003d54    00000085     ec_secp521r1.obj (.const:.string:P521_G)
+                  00003dd9    00000003     --HOLE-- [fill = 0]
+                  00003ddc    0000006c     driverlib.lib : sysctl.obj (.const:g_pui32Xtals)
+                  00003e48    00000061     ec_secp384r1.obj (.const:.string:P384_G)
+                  00003ea9    00000003     --HOLE-- [fill = 0]
+                  00003eac    00000048     ec_prime_i31.obj (.const:P521_B)
+                  00003ef4    00000048     ec_prime_i31.obj (.const:P521_P)
+                  00003f3c    00000048     ec_prime_i31.obj (.const:P521_R2)
+                  00003f84    00000042     ec_secp521r1.obj (.const:.string:P521_N)
+                  00003fc6    00000041     ec_p256_m31.obj (.const:.string:P256_G)
+                  00004007    00000041     ec_secp256r1.obj (.const:.string:P256_G)
+                  00004048    0000003c     ec_prime_i31.obj (.const:pp$1)
+                  00004084    00000038     ec_prime_i31.obj (.const:P384_B)
+                  000040bc    00000038     ec_prime_i31.obj (.const:P384_P)
+                  000040f4    00000038     ec_prime_i31.obj (.const:P384_R2)
+                  0000412c    00000032     ec_prime_i31.obj (.const:code_add)
+                  0000415e    00000030     ec_secp384r1.obj (.const:.string:P384_N)
+                  0000418e    00000030     ec_prime_i31.obj (.const:code_double)
+                  000041be    00000002     --HOLE-- [fill = 0]
+                  000041c0    00000028     ec_prime_i31.obj (.const:P256_B)
+                  000041e8    00000028     ec_prime_i31.obj (.const:P256_P)
+                  00004210    00000028     ec_prime_i31.obj (.const:P256_R2)
+                  00004238    00000024     ec_p256_m31.obj (.const:F256)
+                  0000425c    00000024     ec_p256_m31.obj (.const:P256_B)
+                  00004280    00000020     ec_c25519_m31.obj (.const:.string:GEN)
+                  000042a0    00000020     ec_c25519_m31.obj (.const:.string:ORDER)
+                  000042c0    00000020     ec_p256_m31.obj (.const:.string:P256_N)
+                  000042e0    00000020     ec_secp256r1.obj (.const:.string:P256_N)
+                  00004300    0000001f     ec_pubkey.obj (.const:.string:POINT_LEN)
+                  0000431f    00000001     --HOLE-- [fill = 0]
+                  00004320    0000001e     ec_prime_i31.obj (.const:code_check)
+                  0000433e    00000002     --HOLE-- [fill = 0]
+                  00004340    0000001c     ec_all_m31.obj (.const:br_ec_all_m31)
+                  0000435c    0000001c     ec_c25519_m31.obj (.const:br_ec_c25519_m31)
+                  00004378    0000001c     ec_p256_m31.obj (.const:br_ec_p256_m31)
+                  00004394    0000001c     ec_prime_i31.obj (.const:br_ec_prime_i31)
+                  000043b0    00000016     ec_prime_i31.obj (.const:code_affine)
+                  000043c6    00000002     --HOLE-- [fill = 0]
+                  000043c8    00000014     ec_secp256r1.obj (.const:br_secp256r1)
+                  000043dc    00000014     ec_secp384r1.obj (.const:br_secp384r1)
+                  000043f0    00000014     ec_secp521r1.obj (.const:br_secp521r1)
+                  00004404    0000000c     uartstdio.obj (.const:g_ui32UARTBase)
+                  00004410    0000000c     uartstdio.obj (.const:g_ui32UARTPeriph)
+
+.cinit     0    00004420    00000030     
+                  00004420    0000000c     (__TI_handler_table)
+                  0000442c    00000004     --HOLE-- [fill = 0]
+                  00004430    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004438    00000007     (.cinit..data.load) [load image, compression = lzss]
+                  0000443f    00000001     --HOLE-- [fill = 0]
+                  00004440    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000018     UNINITIALIZED
+                  20000200    0000000c     hello.obj (.bss:$P$T0$1)
+                  2000020c    0000000c     hello.obj (.bss:$P$T1$2)
+
+.data      0    20000218    00000005     UNINITIALIZED
+                  20000218    00000005     uartstdio.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                       code    ro data   rw data
+       ------                       ----    -------   -------
+    ./
+       startup_ccs.obj              12      620       0      
+       hello.obj                    360     0         24     
+    +--+----------------------------+-------+---------+---------+
+       Total:                       372     620       24     
+                                                             
+    ./codec/
+       ccopy.obj                    34      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       34      0         0      
+                                                             
+    ./ec/
+       ec_p256_m31.obj              5130    1277      0      
+       ec_c25519_m31.obj            2644    92        0      
+       ec_prime_i31.obj             1400    742       0      
+       ec_all_m31.obj               500     28        0      
+       ec_secp521r1.obj             0       219       0      
+       ec_keygen.obj                198     0         0      
+       ec_secp384r1.obj             0       165       0      
+       ec_secp256r1.obj             0       117       0      
+       ec_pubkey.obj                68      31        0      
+       ec_default.obj               8       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       9948    2671      0      
+                                                             
+    ./int/
+       i31_montmul.obj              582     0         0      
+       i31_muladd.obj               448     0         0      
+       i31_decmod.obj               268     0         0      
+       i31_modpow.obj               186     0         0      
+       i32_div32.obj                158     0         0      
+       i31_encode.obj               144     0         0      
+       i31_sub.obj                  72      0         0      
+       i31_add.obj                  68      0         0      
+       i31_iszero.obj               44      0         0      
+       i31_tmont.obj                30      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       2000    0         0      
+                                                             
+    ./utils/
+       uartstdio.obj                688     24        5      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       688     24        5      
+                                                             
+    /Applications/ti/ccs1210/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj            156     0         0      
+       memset_t2.asm.obj            122     0         0      
+       copy_decompress_lzss.c.obj   104     0         0      
+       autoinit.c.obj               68      0         0      
+       u_divt2.asm.obj              64      0         0      
+       boot_cortex_m.c.obj          52      0         0      
+       memmov.c.obj                 40      0         0      
+       copy_zero_init.c.obj         28      0         0      
+       copy_decompress_none.c.obj   14      0         0      
+       exit.c.obj                   4       0         0      
+       pre_init.c.obj               4       0         0      
+       div0.asm.obj                 2       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       658     0         0      
+                                                             
+    /Users/jason/ti/tivaware_c_series_2_1_4_178/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                   278     108       0      
+       gpio.obj                     6       0         0      
+       uart.obj                     6       0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       290     108       0      
+                                                             
+       Stack:                       0       0         512    
+       Linker Generated:            0       43        0      
+    +--+----------------------------+-------+---------+---------+
+       Grand Total:                 13990   3466      541    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00004440 records: 2, size/record: 8, table size: 16
+	.bss: load addr=00004430, load size=00000008 bytes, run addr=20000200, run size=00000018 bytes, compression=zero_init
+	.data: load addr=00004438, load size=00000007 bytes, run addr=20000218, run size=00000005 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00004420 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00003915  C$$EXIT                       
+00002f2d  ConfigureUART                 
+000038f9  GPIOPinWrite                  
+000038ff  ResetISR                      
+00001cdd  SysCtlClockGet                
+00003905  SysCtlDelay                   
+0000390b  UARTClockSourceSet            
+00002f91  UARTStdioConfig               
+0000385d  UARTprintf                    
+0000156d  UARTvprintf                   
+0000322d  UARTwrite                     
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00004440  __TI_CINIT_Base               
+00004450  __TI_CINIT_Limit              
+00004420  __TI_Handler_Table_Base       
+0000442c  __TI_Handler_Table_Limit      
+0000334d  __TI_auto_init_nobinit_nopinit
+00002e5b  __TI_decompress_lzss          
+000038a3  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00003841  __TI_zero_init_nomemset       
+0000260b  __aeabi_idiv0                 
+0000260b  __aeabi_ldiv0                 
+00002de1  __aeabi_memclr                
+00002de1  __aeabi_memclr4               
+00002de1  __aeabi_memclr8               
+00002a23  __aeabi_memcpy                
+00002a23  __aeabi_memcpy4               
+00002a23  __aeabi_memcpy8               
+00002de3  __aeabi_memset                
+00002de3  __aeabi_memset4               
+00002de3  __aeabi_memset8               
+000034e1  __aeabi_uidiv                 
+000034e1  __aeabi_uidivmod              
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00003645  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00003911  _system_pre_init              
+00003915  abort                         
+ffffffff  binit                         
+000037c3  br_ccopy                      
+00002985  br_divrem                     
+00004340  br_ec_all_m31                 
+0000435c  br_ec_c25519_m31              
+00003419  br_ec_compute_pub             
+000038f1  br_ec_get_default             
+00002545  br_ec_keygen                  
+00004378  br_ec_p256_m31                
+00004394  br_ec_prime_i31               
+0000345d  br_i31_add                    
+00001ded  br_i31_decode_mod             
+00002abf  br_i31_encode                 
+000036d3  br_i31_iszero                 
+000026d1  br_i31_modpow                 
+00000ccd  br_i31_montymul               
+0000175b  br_i31_muladd_small           
+00003305  br_i31_sub                    
+00003805  br_i31_to_monty               
+000043c8  br_secp256r1                  
+000043dc  br_secp384r1                  
+000043f0  br_secp521r1                  
+00000000  g_pfnVectors                  
+000034a1  generate_ecc_key_pair         
+0000260d  main                          
+00002a23  memcpy                        
+00003755  memmove                       
+00002de9  memset                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+00000ccd  br_i31_montymul               
+0000156d  UARTvprintf                   
+0000175b  br_i31_muladd_small           
+00001cdd  SysCtlClockGet                
+00001ded  br_i31_decode_mod             
+00002545  br_ec_keygen                  
+0000260b  __aeabi_idiv0                 
+0000260b  __aeabi_ldiv0                 
+0000260d  main                          
+000026d1  br_i31_modpow                 
+00002985  br_divrem                     
+00002a23  __aeabi_memcpy                
+00002a23  __aeabi_memcpy4               
+00002a23  __aeabi_memcpy8               
+00002a23  memcpy                        
+00002abf  br_i31_encode                 
+00002de1  __aeabi_memclr                
+00002de1  __aeabi_memclr4               
+00002de1  __aeabi_memclr8               
+00002de3  __aeabi_memset                
+00002de3  __aeabi_memset4               
+00002de3  __aeabi_memset8               
+00002de9  memset                        
+00002e5b  __TI_decompress_lzss          
+00002f2d  ConfigureUART                 
+00002f91  UARTStdioConfig               
+0000322d  UARTwrite                     
+00003305  br_i31_sub                    
+0000334d  __TI_auto_init_nobinit_nopinit
+00003419  br_ec_compute_pub             
+0000345d  br_i31_add                    
+000034a1  generate_ecc_key_pair         
+000034e1  __aeabi_uidiv                 
+000034e1  __aeabi_uidivmod              
+00003645  _c_int00_noargs               
+000036d3  br_i31_iszero                 
+00003755  memmove                       
+000037c3  br_ccopy                      
+00003805  br_i31_to_monty               
+00003841  __TI_zero_init_nomemset       
+0000385d  UARTprintf                    
+000038a3  __TI_decompress_none          
+000038f1  br_ec_get_default             
+000038f9  GPIOPinWrite                  
+000038ff  ResetISR                      
+00003905  SysCtlDelay                   
+0000390b  UARTClockSourceSet            
+00003911  _system_pre_init              
+00003915  C$$EXIT                       
+00003915  abort                         
+00004340  br_ec_all_m31                 
+0000435c  br_ec_c25519_m31              
+00004378  br_ec_p256_m31                
+00004394  br_ec_prime_i31               
+000043c8  br_secp256r1                  
+000043dc  br_secp384r1                  
+000043f0  br_secp521r1                  
+00004420  __TI_Handler_Table_Base       
+0000442c  __TI_Handler_Table_Limit      
+00004440  __TI_CINIT_Base               
+00004450  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[77 symbols]
